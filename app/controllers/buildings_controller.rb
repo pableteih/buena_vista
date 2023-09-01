@@ -65,6 +65,6 @@ class BuildingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def building_params
-      params.require(:building).permit(:name, :street, :number, :comuna_id)
+      params.require(:building).permit(:name, :street, :number, :comuna_id, service_ids: [])
     end
 end

@@ -6,5 +6,8 @@ class User < ApplicationRecord
   
   has_many :clients
   has_many :publications
+
+  validates :name, presence: true
+  validates :phone, presence: true
   
 end

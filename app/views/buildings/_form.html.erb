@@ -12,26 +12,38 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
+    <%= form.label :Nombre, style: "display: block" %>
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label :street, style: "display: block" %>
+    <%= form.label :Calle, style: "display: block" %>
     <%= form.text_field :street %>
   </div>
 
   <div>
-    <%= form.label :number, style: "display: block" %>
+    <%= form.label :Numeración, style: "display: block" %>
     <%= form.number_field :number %>
   </div>
 
   <div>
     <%= form.label :comuna_id, style: "display: block" %>
-    <%= form.text_field :comuna_id %>
+    <%= form.collection_select :comuna_id, Comuna.all, :id, :name, prompt: "Selecciona una comuna" %>  </div>
+  <div>
+
+  <div class="field">
+    <%= form.label 'Selecciona los servicios disponibles' %>
+    <% Service.all.each do |service| %>
+      <div class="form-check">
+        <%= form.check_box :service_ids, { multiple: true }, service.id, nil %>
+        <%= form.label service.name, class: 'form-check-label' %>
+      </div>
+    <% end %>
   </div>
 
-  <div>
+
+
+
     <%= form.submit %>
   </div>
 <% end %>
