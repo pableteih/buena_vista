@@ -1,22 +1,22 @@
 <div id="<%= dom_id client %>">
-  <p>
-    <strong>Name:</strong>
-    <%= client.name %>
-  </p>
-
-  <p>
-    <strong>Phone:</strong>
-    <%= client.phone %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= client.email %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= client.user_id %>
-  </p>
-
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th>Nombre:</th>
+        <td><%= client.name %></td>
+      </tr>
+      <tr>
+        <th>Telefono:</th>
+        <td><%= client.phone %></td>
+      </tr>
+      <tr>
+        <th>Correo:</th>
+        <td><%= client.email %></td>
+      </tr>
+      <tr>
+        <th>Vendedor asignado:</th>
+        <td><%= client.user.name %></td>
+      </tr>
+    </tbody>
+  </table>
 </div>

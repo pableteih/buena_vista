@@ -1,14 +1,13 @@
-<p style="color: green"><%= notice %></p>
+<p class="text-success"><%= notice %></p>
 
-<h1>Buildings</h1>
-
+<h1>Edificios</h1>
+<%= link_to "Nuevo edificio", new_building_path, class: "btn btn-dark" %>
 <div id="buildings">
   <% @buildings.each do |building| %>
     <%= render building %>
     <p>
-      <%= link_to "Show this building", building %>
+      <%= link_to "Mostrar el edificio", building, class: "btn btn-dark" %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New building", new_building_path %>

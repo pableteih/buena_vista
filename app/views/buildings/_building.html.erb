@@ -1,22 +1,37 @@
 <div id="<%= dom_id building %>">
-  <p>
-    <strong>Name:</strong>
-    <%= building.name %>
-  </p>
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th>Nombre:</th>
+        <td><%= building.name %></td>
+      </tr>
+      <tr>
+        <th>Calle:</th>
+        <td><%= building.street %></td>
+      </tr>
+      <tr>
+        <th>Numero:</th>
+        <td><%= building.number %></td>
+      </tr>
+      <tr>
+        <th>Comuna:</th>
+        <td><%= building.comuna_id %></td>
+      </tr>
+      <tr>
+        <th>Servicios:</th>
+        <td>
+          <ul>
+            <% building.services.each do |service| %>
+              <li><%= service.name %></li>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-  <p>
-    <strong>Street:</strong>
-    <%= building.street %>
-  </p>
-
-  <p>
-    <strong>Number:</strong>
-    <%= building.number %>
-  </p>
-
-  <p>
-    <strong>Comuna:</strong>
-    <%= building.comuna_id %>
-  </p>
-
+  <div class="mt-3">
+    <%= link_to "editar el edificio", edit_building_path(building), class: "btn btn-dark mr-2" %>
+    <%= link_to "Volver a los edificios", buildings_path, class: "btn btn-dark mr-2" %>
+  </div>
 </div>

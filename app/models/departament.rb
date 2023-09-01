@@ -5,4 +5,5 @@ class Departament < ApplicationRecord
   has_many :publications, dependent: :destroy
   has_many_attached :images
 
+
 end
