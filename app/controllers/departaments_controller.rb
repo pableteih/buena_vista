@@ -1,6 +1,6 @@
 class DepartamentsController < ApplicationController
   before_action :set_departament, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
   # GET /departaments or /departaments.json
   def index
     @departaments = Departament.all
@@ -65,6 +65,6 @@ class DepartamentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def departament_params
-      params.require(:departament).permit(:floor, :number, :bedrooms, :bathrooms, :squaremeters, :price, :client_id, :building_id, :status_id)
+      params.require(:departament).permit(:floor, :number, :bedrooms, :bathrooms, :squaremeters, :price, :client_id, :building_id, :status_id, images:[])
     end
 end

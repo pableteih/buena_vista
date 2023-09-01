@@ -1,24 +1,79 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>BuenaVista</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  </head>
+<head>
+  <title>Crazy4cats</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+  
+  <!-- Agrega tu estilo personalizado para cambiar el color del texto del Navbar a blanco -->
+  <style>
+    /* Establece el color del texto a blanco para la clase navbar-content */
+    .navbar-content {
+      color: white;
+    }
+  </style>
+</head>
 
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand">Buena vista</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse navbar-content" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <%= link_to "Publicaciones", publications_path, class: "nav-link" %>
+          </li>
+          <%if user_signed_in?%>
+          <li class="nav-item">
+            <%= link_to current_user.email, edit_user_registration_path, class:"nav-link"%>
+          </li>
+          <li class="nav-item">
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Cerrar sesión', destroy_user_session_path, class: 'nav-link' %>
+          </li>
+          <%else%>
+          <li class="nav-item">
+            <%= link_to "Registrarse", new_user_registration_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Iniciar sesión", new_user_session_path, class: "nav-link" %>
+          </li>
+          <%end%>
+          <li class="nav-item">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    <%= yield %>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <footer class="text-center py-3">
+    <p>&copy; <%= Time.current.year %> Buena vista. Todos los derechos reservados.</p>
+  </footer>
 
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
 </html>

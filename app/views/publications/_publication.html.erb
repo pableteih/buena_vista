@@ -1,12 +1,58 @@
-<div id="<%= dom_id publication %>">
-  <p>
-    <strong>Description:</strong>
-    <%= publication.description %>
-  </p>
+<div class="card" style="width: 50%; height: 50%;">
+  <div class="card-body">
+    <div id="<%= dom_id publication %>">
+      <div class="row">
+        <% publication.departament.images.each_with_index do |image, index| %>
+          <div class="col-md-4">
+            <%= image_tag(image, width: 250, height: 250, class: "img-thumbnail") %>
+          </div>
+        <% end %>
+      </div>
 
-  <p>
-    <strong>Departament:</strong>
-    <%= publication.departament_id %>
-  </p>
-
+      <table class="table table-bordered mt-3">
+        <tbody>
+          <tr>
+            <th>Description</th>
+            <td><%= publication.description %></td>
+          </tr>
+          <tr>
+            <th>Habitaciones</th>
+            <td><%= publication.departament.bedrooms %></td>
+          </tr>
+          <tr>
+            <th>Floor</th>
+            <td><%= publication.departament.floor %></td>
+          </tr>
+          <tr>
+            <th>Number</th>
+            <td><%= publication.departament.number %></td>
+          </tr>
+          <tr>
+            <th>Bathrooms</th>
+            <td><%= publication.departament.bathrooms %></td>
+          </tr>
+          <tr>
+            <th>Squaremeters</th>
+            <td><%= publication.departament.squaremeters %></td>
+          </tr>
+          <tr>
+            <th>Price</th>
+            <td><%= publication.departament.price %></td>
+          </tr>
+          <tr>
+            <th>Client</th>
+            <td><%= publication.departament.client_id %></td>
+          </tr>
+          <tr>
+            <th>Building</th>
+            <td><%= publication.departament.building_id %></td>
+          </tr>
+          <tr>
+            <th>Status</th>
+            <td><%= publication.departament.status_id %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

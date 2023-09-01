@@ -12,6 +12,12 @@
   <% end %>
 
   <div>
+    <%= form.label :images, style: "display: block" %>
+    <%= form.file_field :images, multiple: true %>
+  </div>
+
+
+  <div>
     <%= form.label :floor, style: "display: block" %>
     <%= form.number_field :floor %>
   </div>

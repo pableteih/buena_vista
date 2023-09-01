@@ -1,5 +1,7 @@
 class Publication < ApplicationRecord
   belongs_to :departament
-  belong_to :user
+  belongs_to :user
+  has_many :images, as: :imageable
+  
 
 end

@@ -1,4 +1,5 @@
 class Image < ApplicationRecord
-  belongs_to :departament
+  belongs_to :imageable, polymorphic: true
+  
   
 end
