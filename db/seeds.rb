@@ -76,3 +76,59 @@ Service.create(name: "Gimnasio")
 Service.create(name: "Parque")
 Service.create(name: "Sala multiusos")
 
+User.create!(
+  name: "pablo",
+  phone: 56978544,
+  email: 'admin01@gmail.com',
+  password: '123456',
+  password_confirmation: '123456',
+  role: 'admin'
+)
+User.create!(
+  name: "miguel",
+  phone: 5328544,
+  email: 'admin02@gmail.com',
+  password: '123456',
+  password_confirmation: '123456',
+  role: 'admin' 
+)
+User.create!(
+  name: "leandro",
+  phone: 56978535,
+  email: 'ventas01@gmail.com',
+  password: '123456',
+  password_confirmation: '123456',
+  role: 'vendedor' 
+)
+User.create!(
+  name: "andres",
+  phone: 56974544,
+  email: 'ventas02@gmail.com',
+  password: '123456',
+  password_confirmation: '123456',
+  role: 'vendedor' 
+)
+User.create!(
+  name: "daniela",
+  phone: 56968544,
+  email: 'ventas03@gmail.com',
+  password: '123456',
+  password_confirmation: '123456',
+  role: 'vendedor' 
+)
+
+10.times do 
+  Client.create!(
+    name: Faker::Name.name,
+    phone: Faker::PhoneNumber.cell_phone,
+    email: Faker::Internet.unique.email, # Utiliza Faker para generar correos electrónicos únicos
+    user_id: 1
+  )
+end
+
+Building.create!(
+  name: "sacramento",
+  street: "santa isabel",
+  number: 1023,
+  comuna_id: 2
+)

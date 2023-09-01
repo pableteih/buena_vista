@@ -1,10 +1,10 @@
-<div class="card" style="width: 50%; height: 50%;">
+<div class="card"   >
   <div class="card-body">
     <div id="<%= dom_id publication %>">
       <div class="row">
         <% publication.departament.images.each_with_index do |image, index| %>
           <div class="col-md-4">
-            <%= image_tag(image, width: 250, height: 250, class: "img-fluid rounded") %>
+            <%= image_tag(image, width: 250, height: 250, class: "img-fluid") %>
           </div>
         <% end %>
       </div>
