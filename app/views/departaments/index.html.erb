@@ -2,13 +2,13 @@
 
 <h1>Departaments</h1>
 
+<%= link_to "Crear nuevo departamento", new_departament_path, class: "btn btn-dark" %>
+
 <div id="departaments">
   <% @departaments.each do |departament| %>
     <%= render departament %>
     <p>
-      <%= link_to "Show this departament", departament %>
+      <%= link_to "Show this departament", departament, class: "btn btn-dark" %>
     </p>
   <% end %>
 </div>
-
-<%= link_to "New departament", new_departament_path %>

@@ -1,47 +1,30 @@
-<div id="<%= dom_id departament %>">
-  <p>
-    <strong>Floor:</strong>
-    <%= departament.floor %>
-  </p>
-
-  <p>
-    <strong>Number:</strong>
-    <%= departament.number %>
-  </p>
-
-  <p>
-    <strong>Bedrooms:</strong>
-    <%= departament.bedrooms %>
-  </p>
-
-  <p>
-    <strong>Bathrooms:</strong>
-    <%= departament.bathrooms %>
-  </p>
-
-  <p>
-    <strong>Squaremeters:</strong>
-    <%= departament.squaremeters %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= departament.price %>
-  </p>
-
-  <p>
-    <strong>Client:</strong>
-    <%= departament.client_id %>
-  </p>
-
-  <p>
-    <strong>Building:</strong>
-    <%= departament.building_id %>
-  </p>
-
-  <p>
-    <strong>Status:</strong>
-    <%= departament.status_id %>
-  </p>
-
-</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Piso</th>
+      <th>Numero depto</th>
+      <th>Habitaciones</th>
+      <th>baños</th>
+      <th>mt cuadrados</th>
+      <th>precio</th>
+      <th>cliente</th>
+      <th>edificio</th>
+      <th>estado</th>
+      <th>editar departamento</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+      <td><%= departament.floor %></td>
+      <td><%= departament.number %></td>
+      <td><%= departament.bedrooms %></td>
+      <td><%= departament.bathrooms %></td>
+      <td><%= departament.squaremeters %></td>
+      <td><%= departament.price %></td>
+      <td><%= departament.client.name %></td>
+      <td><%= departament.building.name %></td>
+      <td><%= departament.status.name %></td>
+      <td><%= link_to "ir", edit_departament_path(departament) %></td>
+    </tr>
+  </tbody>
+</table>

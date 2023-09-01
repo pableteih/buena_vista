@@ -1,10 +1,34 @@
-<p style="color: green"><%= notice %></p>
+<div class="container-fluid mt-4"> <!-- Utilizamos 'container-fluid' en lugar de 'container' para que ocupe todo el ancho disponible -->
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <p style="color: green"><%= notice %></p>
+      <%= render @publication %>
+    </div>
+  </div>
 
-<%= render @publication %>
+      <h3>Servicios disponibles en el edificio</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Service</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @publication.departament.building.services.each do |service| %>
+            <tr>
+              <td><%= service.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-<div>
-  <%= link_to "Edit this publication", edit_publication_path(@publication) %> |
-  <%= link_to "Back to publications", publications_path %>
-
-  <%= button_to "Destroy this publication", @publication, method: :delete %>
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+      <%= link_to "Edit this publication", edit_publication_path(@publication), class: "btn btn-primary mr-2" %>
+      <%= link_to "Back to publications", publications_path, class: "btn btn-secondary mr-2" %>
+      <%= button_to "Destroy this publication", @publication, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+    </div>
+  </div>
 </div>

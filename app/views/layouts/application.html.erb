@@ -39,6 +39,9 @@
             <%= link_to current_user.email, edit_user_registration_path, class:"nav-link"%>
           </li>
           <li class="nav-item">
+            <%= link_to "administración", departaments_path, class:"nav-link"%>
+          </li>
+          <li class="nav-item">
           </li>
           <li class="nav-item">
             <%= link_to 'Cerrar sesión', destroy_user_session_path, class: 'nav-link' %>
@@ -60,11 +63,11 @@
 
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-8">
+
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
         <%= yield %>
-      </div>
+
     </div>
   </div>
 
